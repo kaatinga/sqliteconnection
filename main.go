@@ -18,8 +18,8 @@ func New(pathToDB string) (db *sql.DB, err error) {
 }
 
 // checkForeignKeys additionally checks if the connection is properly set up and established
-func checkForeignKeys(localDB *sql.DB) error {
-	query, err := localDB.Query(`PRAGMA foreign_keys;`)
+func checkForeignKeys(db *sql.DB) error {
+	query, err := db.Query(`PRAGMA foreign_keys;`)
 	if err != nil {
 		return err
 	}
